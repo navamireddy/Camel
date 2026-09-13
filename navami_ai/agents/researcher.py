@@ -1,16 +1,13 @@
-from dotenv import load_dotenv
-
 from camel.agents import ChatAgent
 from camel.models import ModelFactory
-from camel.types import ModelPlatformType, ModelType
-
-load_dotenv()
+from camel.types import ModelPlatformType
 
 
 def create_researcher():
     model = ModelFactory.create(
-        model_platform=ModelPlatformType.OPENAI,
-        model_type=ModelType.GPT_4O_MINI,
+        model_platform=ModelPlatformType.OLLAMA,
+        model_type="llama3.2",
+        url="http://localhost:11434/v1",
         model_config_dict={
             "temperature": 0.2,
         },
